@@ -65,7 +65,7 @@ def health_check():
 if __name__ == '__main__':
     # Get configuration from environment variables with defaults
     debug_mode = os.environ.get('DEBUG', 'False').lower() == 'true'
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 5100))
     
     # Run the Flask app - host='0.0.0.0' makes it accessible from any IP
     app.run(debug=debug_mode, host='0.0.0.0', port=port)
