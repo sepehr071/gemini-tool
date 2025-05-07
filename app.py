@@ -3,6 +3,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 from utils.openrouter import generate_completion
+from utils.logger import log_response
 
 # Load environment variables from .env file
 load_dotenv()
@@ -44,6 +45,12 @@ def generate():
     try:
         # Call OpenRouter API
         result = generate_completion(user_input, system_prompt)
+        
+        # Log the response to a file
+        log_file = log_response(user_input, result)
+        if log_file:
+            app.logger.info(f"Response logged to {log_file}")
+        
         return jsonify({
             'response': result['response'],
             'reasoning': result['reasoning']

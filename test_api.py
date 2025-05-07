@@ -5,7 +5,7 @@ def test_api():
     Test the OpenRouter Flask API by sending a request to the /generate endpoint.
     """
     # API endpoint
-    url = "http://localhost:5000/generate"
+    url = "http://localhost:5100/generate"
     
     # Test data
     data = {
